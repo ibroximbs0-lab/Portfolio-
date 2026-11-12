@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="uz" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ibroxim | Portfolio & Dasturchi</title>
+  <meta name="description" content="Ibroxim - Full-Stack & Game Developer. Zamonaviy veb-saytlar, o'yinlar va raqamli yechimlar yaratuvchisi.">
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Canvas Particles Background -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Navigation Header -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-symbol">&lt;/&gt;</span>
+        <span class="logo-text">Ibroxim<span class="logo-dot">.dev</span></span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#home" class="nav-link active" data-i18n="nav.home">Bosh sahifa</a>
+        <a href="#about" class="nav-link" data-i18n="nav.about">Haqimda</a>
+        <a href="#skills" class="nav-link" data-i18n="nav.skills">Ko'nikmalar</a>
+        <a href="#projects" class="nav-link" data-i18n="nav.projects">Loyihalar</a>
+        <a href="#experience" class="nav-link" data-i18n="nav.experience">Tajriba</a>
+        <a href="#contact" class="nav-link" data-i18n="nav.contact">Aloqa</a>
+      </nav>
+
+      <!-- Nav Actions (Lang, Theme, CTA) -->
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <button id="lang-toggle" class="btn-icon" title="Tilni almashtirish / Switch language" aria-label="Toggle language">
+          <span id="lang-label" class="badge-lang">UZ</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="btn-icon" title="Mavzuni almashtirish" aria-label="Toggle dark/light mode">
+          <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+
+        <!-- Contact CTA Button -->
+        <a href="#contact" class="btn btn-primary btn-sm nav-cta" data-i18n="nav.hireMe">
+          <span>Bog'lanish</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button id="mobile-toggle" class="btn-icon mobile-menu-btn" aria-label="Open mobile navigation">
+          <i class="fa-solid fa-bars" id="menu-icon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="badge-status">
+            <span class="pulse-dot"></span>
+            <span data-i18n="hero.available">Yangi loyihalar uchun ochiq</span>
+          </div>
+          
+          <h1 class="hero-title">
+            <span data-i18n="hero.greeting">Salom, Men</span> <br>
+            <span class="gradient-text hero-name">Ibroxim</span>
+          </h1>
+
+          <div class="typing-wrapper">
+            <span class="typing-prefix" data-i18n="hero.iAm">Men — </span>
+            <span class="typing-text" id="typing-text">Full-Stack Dasturchi</span>
+            <span class="typing-cursor">|</span>
+          </div>
+
+          <p class="hero-description" data-i18n="hero.bio">
+            Zamonaviy, yuqori tezlikda ishlovchi veb-ilovalar, interaktiv 3D tajribalar va qiziqarli brauzer o'yinlarini loyihalash hamda ishlab chiqishga ishtiyoqmand dasturchi.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fa-solid fa-code-fork"></i>
+              <span data-i18n="hero.btnProjects">Loyihalarimni ko'rish</span>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span data-i18n="hero.btnContact">Xabar qoldirish</span>
+            </a>
+          </div>
+
+          <div class="hero-socials">
+            <span class="social-label" data-i18n="hero.followMe">Meni kuzatib boring:</span>
+            <div class="social-icons">
+              <a href="https://github.com" target="_blank" rel="noopener" class="social-link" title="GitHub" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://t.me" target="_blank" rel="noopener" class="social-link" title="Telegram" aria-label="Telegram">
+                <i class="fa-brands fa-telegram"></i>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link" title="LinkedIn" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a href="mailto:ibroxim@example.com" class="social-link" title="Email" aria-label="Email">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="visual-card-wrapper">
+            <!-- Glow background -->
+            <div class="glow-sphere"></div>
+            
+            <!-- Code preview terminal card -->
+            <div class="terminal-card glass-panel">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <span class="terminal-title">developer.config.ts</span>
+                <span class="terminal-badge">READY</span>
+              </div>
+              <div class="terminal-body">
+                <div class="code-line"><span class="c-keyword">const</span> <span class="c-var">developer</span> = {</div>
+                <div class="code-line indent"><span class="c-prop">name</span>: <span class="c-str">'Ibroxim'</span>,</div>
+                <div class="code-line indent"><span class="c-prop">role</span>: <span class="c-str">'Full-Stack & Game Dev'</span>,</div>
+                <div class="code-line indent"><span class="c-prop">passions</span>: [<span class="c-str">'Clean Architecture'</span>, <span class="c-str">'Creative UX'</span>, <span class="c-str">'WebGL'</span>],</div>
+                <div class="code-line indent"><span class="c-prop">location</span>: <span class="c-str">'O\'zbekiston'</span>,</div>
+                <div class="code-line indent"><span class="c-prop">coffeeLevel</span>: <span class="c-num">Infinity</span>,</div>
+                <div class="code-line indent"><span class="c-prop">status</span>: <span class="c-str">'Building the future 🚀'</span></div>
+                <div class="code-line">};</div>
+                <div class="code-line terminal-run"><span class="c-comment">// ➔ Running test suite: ALL SYSTEMS PASS</span></div>
+              </div>
+            </div>
+
+            <!-- Floating badges -->
+            <div class="floating-badge badge-top-right glass-panel">
+              <div class="badge-icon"><i class="fa-solid fa-bolt"></i></div>
+              <div class="badge-text">
+                <div class="badge-val">99.8%</div>
+                <div class="badge-desc" data-i18n="hero.performance">Performance</div>
+              </div>
+            </div>
+
+            <div class="floating-badge badge-bottom-left glass-panel">
+              <div class="badge-icon"><i class="fa-solid fa-trophy"></i></div>
+              <div class="badge-text">
+                <div class="badge-val">25+</div>
+                <div class="badge-desc" data-i18n="hero.completed">Tugallangan Loyihalar</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Ribbon -->
+      <div class="container stats-ribbon-container">
+        <div class="stats-ribbon glass-panel">
+          <div class="stat-item">
+            <div class="stat-number">3+</div>
+            <div class="stat-label" data-i18n="stats.experience">Yillik Dasturlash Tajribasi</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number">25+</div>
+            <div class="stat-label" data-i18n="stats.projects">Muvaffaqiyatli Loyihalar</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label" data-i18n="stats.satisfaction">Mijozlar Mamnuniyati</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number">15+</div>
+            <div class="stat-label" data-i18n="stats.technologies">O'zlashtirilgan Texnologiyalar</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="about.tag">Tanishuv</span>
+          <h2 class="section-title" data-i18n="about.title">Men Haqimda</h2>
+          <p class="section-subtitle" data-i18n="about.subtitle">Dasturlash va raqamli innovatsiyalarga bo'lgan qarashlarim</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card glass-panel main-about">
+            <div class="about-header-flex">
+              <div class="avatar-box">
+                <div class="avatar-letter">I</div>
+                <div class="online-indicator" title="Online"></div>
+              </div>
+              <div>
+                <h3 class="about-name">Ibroxim</h3>
+                <p class="about-role">Software Engineer & Game Creator</p>
+              </div>
+            </div>
+            
+            <p class="about-text" data-i18n="about.p1">
+              Men texnologiya, qulay dizayn va yuqori samaradorlikni birlashtirish orqali odamlar hayotini osonlashtiruvchi va qiziqtiruvchi dasturiy mahsulotlar yarataman. 
+            </p>
+            <p class="about-text" data-i18n="about.p2">
+              Har bir loyihada arxitekturaning mustahkamligi, toza kod yozish va foydalanuvchi tajribasining (UX) maromida bo'lishiga alohida e'tibor qarataman. Har doim yangi texnologiyalarni o'rganish va murakkab masalalarga kreativ yechim topishga intilaman.
+            </p>
+
+            <div class="about-highlights">
+              <div class="highlight-pill">
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="about.pill1">Toza va ixcham kod (Clean Code)</span>
+              </div>
+              <div class="highlight-pill">
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="about.pill2">Yuqori tezlik va optimallashuv</span>
+              </div>
+              <div class="highlight-pill">
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="about.pill3">Zamonaviy va qulay dizayn</span>
+              </div>
+              <div class="highlight-pill">
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="about.pill4">Doimiy rivojlanish va tadqiqot</span>
+              </div>
+            </div>
+
+            <div class="about-cta-row">
+              <a href="#contact" class="btn btn-primary">
+                <i class="fa-solid fa-comments"></i>
+                <span data-i18n="about.talk">Suhbatlashamiz</span>
+              </a>
+              <button id="download-cv-btn" class="btn btn-outline">
+                <i class="fa-solid fa-download"></i>
+                <span data-i18n="about.cv">Rezyumeni yuklab olish</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="about-features">
+            <div class="feature-card glass-panel">
+              <div class="feature-icon"><i class="fa-solid fa-laptop-code"></i></div>
+              <h4 data-i18n="about.feat1Title">Full-Stack Rivojlanish</h4>
+              <p data-i18n="about.feat1Desc">Frontend interfeyslardan tortib kuchli va xavfsiz backend tizimlargacha yaxlit mahsulot yaratish qobiliyati.</p>
+            </div>
+
+            <div class="feature-card glass-panel">
+              <div class="feature-icon"><i class="fa-solid fa-gamepad"></i></div>
+              <h4 data-i18n="about.feat2Title">O'yin va 3D Dasturlash</h4>
+              <p data-i18n="about.feat2Desc">HTML5 Canvas, WebGL va JavaScript yordamida dinamik fizikaga ega qiziqarli o'yinlar va animatsiyalar.</p>
+            </div>
+
+            <div class="feature-card glass-panel">
+              <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+              <h4 data-i18n="about.feat3Title">Responsive & Cross-Platform</h4>
+              <p data-i18n="about.feat3Desc">Har qanday qurilma — smartfon, planshet yoki keng ekranli monitorlarda mukammal moslashish.</p>
+            </div>
+
+            <div class="feature-card glass-panel">
+              <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <h4 data-i18n="about.feat4Title">Xavfsizlik va Tezlik</h4>
+              <p data-i18n="about.feat4Desc">Optimizatsiya, ma'lumotlar xavfsizligi va qidiruv tizimlari (SEO) uchun to'g'ri standartlar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="skills.tag">Bilimlar</span>
+          <h2 class="section-title" data-i18n="skills.title">Texnologiyalar va Ko'nikmalar</h2>
+          <p class="section-subtitle" data-i18n="skills.subtitle">O'z ishimda foydalanadigan asosiy dasturlash tillari, freymvorklar va vositalar</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Frontend -->
+          <div class="skill-category-card glass-panel">
+            <div class="cat-header">
+              <div class="cat-icon"><i class="fa-brands fa-html5"></i></div>
+              <h3 data-i18n="skills.frontend">Frontend Development</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-info"><span>JavaScript (ES6+)</span><span class="skill-pct">95%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>HTML5 & CSS3 / SCSS</span><span class="skill-pct">95%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>React.js / Next.js</span><span class="skill-pct">88%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Tailwind CSS</span><span class="skill-pct">92%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>TypeScript</span><span class="skill-pct">82%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 82%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Backend & Database -->
+          <div class="skill-category-card glass-panel">
+            <div class="cat-header">
+              <div class="cat-icon"><i class="fa-solid fa-server"></i></div>
+              <h3 data-i18n="skills.backend">Backend & Ma'lumotlar Bazasi</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-info"><span>Node.js & Express</span><span class="skill-pct">89%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 89%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>RESTful APIs & WebSockets</span><span class="skill-pct">90%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>PostgreSQL & SQL</span><span class="skill-pct">84%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 84%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>MongoDB / NoSQL</span><span class="skill-pct">86%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 86%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Python & FastAPIs</span><span class="skill-pct">78%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 78%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Game Dev & Graphics -->
+          <div class="skill-category-card glass-panel">
+            <div class="cat-header">
+              <div class="cat-icon"><i class="fa-solid fa-dice-d20"></i></div>
+              <h3 data-i18n="skills.gamedev">O'yin & 3D Grafika</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-info"><span>HTML5 Canvas 2D API</span><span class="skill-pct">92%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Game Physics & Collision Logic</span><span class="skill-pct">87%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 87%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Three.js / WebGL Basics</span><span class="skill-pct">79%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 79%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Web Audio API</span><span class="skill-pct">83%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 83%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>UI/UX Animation (GSAP/CSS)</span><span class="skill-pct">88%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools & Workflow -->
+          <div class="skill-category-card glass-panel">
+            <div class="cat-header">
+              <div class="cat-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+              <h3 data-i18n="skills.tools">Vositalar & Arxitektura</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-info"><span>Git & GitHub Workflow</span><span class="skill-pct">94%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 94%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Vite, Webpack & Tooling</span><span class="skill-pct">88%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Docker & Konteynerlash</span><span class="skill-pct">75%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Figma & Prototyping</span><span class="skill-pct">85%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Linux & Shell Scripting</span><span class="skill-pct">82%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 82%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Badges Cloud -->
+        <div class="tech-cloud glass-panel">
+          <span class="tech-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+          <span class="tech-tag"><i class="fa-brands fa-react"></i> React</span>
+          <span class="tech-tag"><i class="fa-brands fa-node-js"></i> Node.js</span>
+          <span class="tech-tag"><i class="fa-brands fa-python"></i> Python</span>
+          <span class="tech-tag"><i class="fa-brands fa-git-alt"></i> Git</span>
+          <span class="tech-tag"><i class="fa-brands fa-docker"></i> Docker</span>
+          <span class="tech-tag"><i class="fa-solid fa-database"></i> PostgreSQL</span>
+          <span class="tech-tag"><i class="fa-solid fa-leaf"></i> MongoDB</span>
+          <span class="tech-tag"><i class="fa-solid fa-cubes"></i> Three.js</span>
+          <span class="tech-tag"><i class="fa-solid fa-wind"></i> Tailwind</span>
+          <span class="tech-tag"><i class="fa-brands fa-figma"></i> Figma</span>
+          <span class="tech-tag"><i class="fa-solid fa-gamepad"></i> HTML5 Canvas</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="projects.tag">Portfolio</span>
+          <h2 class="section-title" data-i18n="projects.title">Saralangan Loyihalar</h2>
+          <p class="section-subtitle" data-i18n="projects.subtitle">Men tomonidan ishlab chiqilgan so'nggi va qiziqarli amaliy ishlar</p>
+        </div>
+
+        <!-- Project Filters -->
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all" data-i18n="filter.all">Barchasi</button>
+          <button class="filter-btn" data-filter="game" data-i18n="filter.game">O'yinlar</button>
+          <button class="filter-btn" data-filter="web" data-i18n="filter.web">Veb-saytlar</button>
+          <button class="filter-btn" data-filter="fullstack" data-i18n="filter.fullstack">Full-Stack</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projects-grid">
+
+          <!-- Project 1: Escape from Ibrohim -->
+          <div class="project-card glass-panel" data-category="game">
+            <div class="project-preview preview-game">
+              <div class="preview-overlay">
+                <button class="btn btn-sm btn-primary project-modal-trigger" data-project-id="p1">
+                  <i class="fa-solid fa-eye"></i> <span data-i18n="projects.details">Batafsil</span>
+                </button>
+              </div>
+              <div class="project-icon-badge"><i class="fa-solid fa-gamepad"></i></div>
+              <div class="preview-banner">
+                <span class="banner-title">ESCAPE FROM IBROHIM</span>
+                <span class="banner-sub">Survival & Defense Browser Game</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-cat-badge" data-i18n="filter.game">O'yin</div>
+              <h3 class="project-title">Escape from Ibrohim</h3>
+              <p class="project-desc" data-i18n="p1.desc">
+                Interaktiv audio tizimi, qurollar fizikasi, dinamik to'lqinlar va omon qolish mexanikasiga ega brauzer o'yini.
+              </p>
+              <div class="project-tags">
+                <span>JavaScript</span>
+                <span>Canvas 2D</span>
+                <span>Web Audio API</span>
+                <span>Physics Engine</span>
+              </div>
+              <div class="project-links">
+                <button class="project-link-btn project-modal-trigger" data-project-id="p1">
+                  <i class="fa-solid fa-circle-info"></i> <span data-i18n="projects.info">Tavsif</span>
+                </button>
+                <a href="../ibrohim-game/index.html" target="_blank" class="project-link-btn highlight">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="projects.play">O'ynab ko'rish</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Nexus Quantum 3D -->
+          <div class="project-card glass-panel" data-category="web">
+            <div class="project-preview preview-3d">
+              <div class="preview-overlay">
+                <button class="btn btn-sm btn-primary project-modal-trigger" data-project-id="p2">
+                  <i class="fa-solid fa-eye"></i> <span data-i18n="projects.details">Batafsil</span>
+                </button>
+              </div>
+              <div class="project-icon-badge"><i class="fa-solid fa-cubes"></i></div>
+              <div class="preview-banner">
+                <span class="banner-title">NEXUS QUANTUM 3D</span>
+                <span class="banner-sub">Interactive WebGL Experience</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-cat-badge" data-i18n="filter.web">Veb-sayt</div>
+              <h3 class="project-title">Nexus Quantum 3D</h3>
+              <p class="project-desc" data-i18n="p2.desc">
+                Zamonaviy WebGL va Three.js bilan yaratilgan interaktiv 3D fazoviy simulyator va foydalanuvchi bilan aloqa qiluvchi vizual platforma.
+              </p>
+              <div class="project-tags">
+                <span>Three.js</span>
+                <span>WebGL</span>
+                <span>Shader CSS</span>
+                <span>Interactive</span>
+              </div>
+              <div class="project-links">
+                <button class="project-link-btn project-modal-trigger" data-project-id="p2">
+                  <i class="fa-solid fa-circle-info"></i> <span data-i18n="projects.info">Tavsif</span>
+                </button>
+                <a href="#" class="project-link-btn highlight demo-alert">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="projects.demo">Jonli Demo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Modern SaaS Dashboard -->
+          <div class="project-card glass-panel" data-category="fullstack">
+            <div class="project-preview preview-saas">
+              <div class="preview-overlay">
+                <button class="btn btn-sm btn-primary project-modal-trigger" data-project-id="p3">
+                  <i class="fa-solid fa-eye"></i> <span data-i18n="projects.details">Batafsil</span>
+                </button>
+              </div>
+              <div class="project-icon-badge"><i class="fa-solid fa-chart-pie"></i></div>
+              <div class="preview-banner">
+                <span class="banner-title">ANALYTICS SAAS PRO</span>
+                <span class="banner-sub">Cloud Dashboard & Realtime Data</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-cat-badge" data-i18n="filter.fullstack">Full-Stack</div>
+              <h3 class="project-title">Cloud Analytics & CRM</h3>
+              <p class="project-desc" data-i18n="p3.desc">
+                Biznes tahliliy ko'rsatkichlari, real vaqtli grafikalar, hisobotlar va xodimlar boshqaruvi uchun keng qamrovli boshqaruv paneli.
+              </p>
+              <div class="project-tags">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>PostgreSQL</span>
+                <span>Chart.js</span>
+              </div>
+              <div class="project-links">
+                <button class="project-link-btn project-modal-trigger" data-project-id="p3">
+                  <i class="fa-solid fa-circle-info"></i> <span data-i18n="projects.info">Tavsif</span>
+                </button>
+                <a href="#" class="project-link-btn highlight demo-alert">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="projects.demo">Jonli Demo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: AI Intelligent Assistant UI -->
+          <div class="project-card glass-panel" data-category="web">
+            <div class="project-preview preview-ai">
+              <div class="preview-overlay">
+                <button class="btn btn-sm btn-primary project-modal-trigger" data-project-id="p4">
+                  <i class="fa-solid fa-eye"></i> <span data-i18n="projects.details">Batafsil</span>
+                </button>
+              </div>
+              <div class="project-icon-badge"><i class="fa-solid fa-brain"></i></div>
+              <div class="preview-banner">
+                <span class="banner-title">NOVA AI ASSISTANT</span>
+                <span class="banner-sub">Smart Chat & Workflow Automation</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-cat-badge" data-i18n="filter.web">Veb-sayt</div>
+              <h3 class="project-title">Nova AI Studio</h3>
+              <p class="project-desc" data-i18n="p4.desc">
+                Sun'iy intellekt modeli bilan muloqot qiluvchi, streaming javoblar, ovozli buyruqlar va chiroyli markdown vizualizatsiyaga ega platforma.
+              </p>
+              <div class="project-tags">
+                <span>TypeScript</span>
+                <span>Tailwind CSS</span>
+                <span>OpenAI API</span>
+                <span>Web Audio</span>
+              </div>
+              <div class="project-links">
+                <button class="project-link-btn project-modal-trigger" data-project-id="p4">
+                  <i class="fa-solid fa-circle-info"></i> <span data-i18n="projects.info">Tavsif</span>
+                </button>
+                <a href="#" class="project-link-btn highlight demo-alert">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="projects.demo">Jonli Demo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: E-Commerce Marketplace -->
+          <div class="project-card glass-panel" data-category="fullstack">
+            <div class="project-preview preview-shop">
+              <div class="preview-overlay">
+                <button class="btn btn-sm btn-primary project-modal-trigger" data-project-id="p5">
+                  <i class="fa-solid fa-eye"></i> <span data-i18n="projects.details">Batafsil</span>
+                </button>
+              </div>
+              <div class="project-icon-badge"><i class="fa-solid fa-bag-shopping"></i></div>
+              <div class="preview-banner">
+                <span class="banner-title">STOREFLOW SHOP</span>
+                <span class="banner-sub">Modern E-Commerce Store</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-cat-badge" data-i18n="filter.fullstack">Full-Stack</div>
+              <h3 class="project-title">StoreFlow Marketplace</h3>
+              <p class="project-desc" data-i18n="p5.desc">
+                Mahsulotlar katalogi, xarid savatchasi, to'lov tizimlari integratsiyasi va buyurtmalarni kuzatib boruvchi internet do'kon.
+              </p>
+              <div class="project-tags">
+                <span>Next.js</span>
+                <span>Stripe / Payme</span>
+                <span>MongoDB</span>
+                <span>Tailwind</span>
+              </div>
+              <div class="project-links">
+                <button class="project-link-btn project-modal-trigger" data-project-id="p5">
+                  <i class="fa-solid fa-circle-info"></i> <span data-i18n="projects.info">Tavsif</span>
+                </button>
+                <a href="#" class="project-link-btn highlight demo-alert">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="projects.demo">Jonli Demo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: Cyber Arcade 2D -->
+          <div class="project-card glass-panel" data-category="game">
+            <div class="project-preview preview-arcade">
+              <div class="preview-overlay">
+                <button class="btn btn-sm btn-primary project-modal-trigger" data-project-id="p6">
+                  <i class="fa-solid fa-eye"></i> <span data-i18n="projects.details">Batafsil</span>
+                </button>
+              </div>
+              <div class="project-icon-badge"><i class="fa-solid fa-ghost"></i></div>
+              <div class="preview-banner">
+                <span class="banner-title">CYBER ARCADE RUNNER</span>
+                <span class="banner-sub">Fast Paced Retro Action</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-cat-badge" data-i18n="filter.game">O'yin</div>
+              <h3 class="project-title">Cyber Arcade Runner</h3>
+              <p class="project-desc" data-i18n="p6.desc">
+                Piksel san'ati uslubidagi retro o'yin: yuqori tezlik, to'siqlarni yengib o'tish, global yetakchilar reytingi (Leaderboard).
+              </p>
+              <div class="project-tags">
+                <span>Vanilla JS</span>
+                <span>HTML5 Canvas</span>
+                <span>Pixel Physics</span>
+                <span>Local Storage</span>
+              </div>
+              <div class="project-links">
+                <button class="project-link-btn project-modal-trigger" data-project-id="p6">
+                  <i class="fa-solid fa-circle-info"></i> <span data-i18n="projects.info">Tavsif</span>
+                </button>
+                <a href="#" class="project-link-btn highlight demo-alert">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="projects.demo">Jonli Demo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience & Timeline Section -->
+    <section id="experience" class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="timeline.tag">Karyera</span>
+          <h2 class="section-title" data-i18n="timeline.title">Tajriba va Yo'lim</h2>
+          <p class="section-subtitle" data-i18n="timeline.subtitle">Dasturlashdagi asosiy bosqichlar va o'sish jarayonim</p>
+        </div>
+
+        <div class="timeline">
+          <!-- Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-panel">
+              <div class="timeline-date">2023 - Hozirgi kungacha</div>
+              <h3 class="timeline-role" data-i18n="t1.role">Mustaqil Full-Stack & Game Developer</h3>
+              <div class="timeline-company">Freelance / Shaxsiy Loyihalar</div>
+              <p class="timeline-desc" data-i18n="t1.desc">
+                Mijozlar uchun buyurtma asosida murakkab veb-servislar va brauzer o'yinlari ishlab chiqish. API arxitekturasi, ma'lumotlar bazasi optimallashuvi va frontend UX dizaynini amalga oshirish.
+              </p>
+              <div class="timeline-tags">
+                <span>JavaScript</span>
+                <span>Node.js</span>
+                <span>React</span>
+                <span>Canvas 2D</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-panel">
+              <div class="timeline-date">2022 - 2023</div>
+              <h3 class="timeline-role" data-i18n="t2.role">Frontend Developer</h3>
+              <div class="timeline-company">Raqamli Agentlik & Startaplar</div>
+              <p class="timeline-desc" data-i18n="t2.desc">
+                Zamonaviy landing page'lar, korporativ saytlar va dashboardlar interfeyslarini qurish. Saytlar tezligini oshirish va barcha mobil qurilmalarga to'liq moslashishini ta'minlash.
+              </p>
+              <div class="timeline-tags">
+                <span>HTML/CSS</span>
+                <span>Tailwind CSS</span>
+                <span>JavaScript</span>
+                <span>Figma</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-panel">
+              <div class="timeline-date">2021 - 2022</div>
+              <h3 class="timeline-role" data-i18n="t3.role">Dasturlash Asoslari & Ta'lim</h3>
+              <div class="timeline-company">Axborot Texnologiyalari Yo'nalishi</div>
+              <p class="timeline-desc" data-i18n="t3.desc">
+                Algoritmlar, ma'lumotlar tuzilmasi, kompyuter tarmoqlari va dasturiy ta'minot muhandisligi asoslarini chuqur o'rganish. Ilk mustaqil loyihalar va o'yin mexanikalarini yaratish.
+              </p>
+              <div class="timeline-tags">
+                <span>Algoritmlar</span>
+                <span>Computer Science</span>
+                <span>Git</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="contact.tag">Muloqot</span>
+          <h2 class="section-title" data-i18n="contact.title">Bog'lanish</h2>
+          <p class="section-subtitle" data-i18n="contact.subtitle">Yangi loyiha, taklif yoki hamkorlik uchun men bilan aloqaga chiqing</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Info Column -->
+          <div class="contact-info-col">
+            <div class="contact-card glass-panel">
+              <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="contact-details">
+                <span class="contact-label" data-i18n="contact.locLabel">Manzil</span>
+                <span class="contact-val">Toshkent, O'zbekiston</span>
+              </div>
+            </div>
+
+            <div class="contact-card glass-panel">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="contact-details">
+                <span class="contact-label">Email</span>
+                <a href="mailto:ibroxim@example.com" class="contact-val">ibroxim.developer@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-card glass-panel">
+              <div class="contact-icon"><i class="fa-brands fa-telegram"></i></div>
+              <div class="contact-details">
+                <span class="contact-label">Telegram</span>
+                <a href="https://t.me/ibroxim_dev" target="_blank" rel="noopener" class="contact-val">@ibroxim_dev</a>
+              </div>
+            </div>
+
+            <div class="contact-card glass-panel">
+              <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+              <div class="contact-details">
+                <span class="contact-label">GitHub</span>
+                <a href="https://github.com" target="_blank" rel="noopener" class="contact-val">github.com/ibroxim</a>
+              </div>
+            </div>
+
+            <!-- Working Status box -->
+            <div class="status-box glass-panel">
+              <div class="status-indicator"></div>
+              <div>
+                <h4 data-i18n="contact.availTitle">Hamkorlikka Tayyorman</h4>
+                <p data-i18n="contact.availDesc">Freelance buyurtmalar yoki doimiy jamoa a'zoligi uchun ochiqman.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Column -->
+          <div class="contact-form-col">
+            <form id="contact-form" class="contact-form glass-panel">
+              <div class="form-group">
+                <label for="name" data-i18n="form.name">Ismingiz</label>
+                <input type="text" id="name" name="name" placeholder="Masalan: Sardor Aliyev" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email" data-i18n="form.email">Email yoki Telegram</label>
+                <input type="text" id="email" name="email" placeholder="example@mail.com yoki @username" required>
+              </div>
+
+              <div class="form-group">
+                <label for="subject" data-i18n="form.subject">Mavzu</label>
+                <input type="text" id="subject" name="subject" placeholder="Loyiha buyurtmasi / Taklif" required>
+              </div>
+
+              <div class="form-group">
+                <label for="message" data-i18n="form.message">Xabar matni</label>
+                <textarea id="message" name="message" rows="5" placeholder="Loyiha haqida batafsil ma'lumot yozing..." required></textarea>
+              </div>
+
+              <button type="submit" id="submit-btn" class="btn btn-primary btn-block">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span data-i18n="form.send">Xabarni Yuborish</span>
+              </button>
+
+              <div id="form-feedback" class="form-feedback hidden"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <a href="#home" class="nav-logo">
+          <span class="logo-symbol">&lt;/&gt;</span>
+          <span class="logo-text">Ibroxim<span class="logo-dot">.dev</span></span>
+        </a>
+        <p class="footer-tagline" data-i18n="footer.tagline">Mukammal kod, innovatsion yechimlar va ijodiy ruh.</p>
+      </div>
+
+      <div class="footer-center">
+        <div class="footer-nav">
+          <a href="#home" data-i18n="nav.home">Bosh sahifa</a>
+          <a href="#about" data-i18n="nav.about">Haqimda</a>
+          <a href="#skills" data-i18n="nav.skills">Ko'nikmalar</a>
+          <a href="#projects" data-i18n="nav.projects">Loyihalar</a>
+          <a href="#contact" data-i18n="nav.contact">Aloqa</a>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <div class="social-icons">
+          <a href="https://github.com" target="_blank" rel="noopener" class="social-link" title="GitHub" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://t.me" target="_blank" rel="noopener" class="social-link" title="Telegram" aria-label="Telegram">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link" title="LinkedIn" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+        <p class="copyright">&copy; <span id="year"></span> Ibroxim. <span data-i18n="footer.rights">Barcha huquqlar himoyalangan.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Project Details Modal -->
+  <div id="project-modal" class="modal-overlay hidden" aria-hidden="true">
+    <div class="modal-card glass-panel">
+      <button id="modal-close" class="modal-close-btn" aria-label="Close modal">&times;</button>
+      <div id="modal-content">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toast-text">Xabar muvaffaqiyatli yuborildi!</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
